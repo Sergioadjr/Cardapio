@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.cardapio.dto.FoodResponseDTO;
 import com.example.cardapio.models.Food;
 import com.example.cardapio.repository.FoodRepository;
 
@@ -16,9 +17,9 @@ public class FoodController {
     private FoodRepository foodRepository;
     
     @GetMapping
-    public List<Food> getAll() {
+    public List<FoodResponseDTO> getAll() {
         
-        List<Food> foodList = foodRepository.findAll();
+        List<FoodResponseDTO> foodList = foodRepository.findAll().stream().map(FoodResponseDTO::new).toList();
         return foodList;
     }
 
