@@ -1,5 +1,7 @@
 package com.example.cardapio.models;
 
+import com.example.cardapio.dto.FoodRequestDTO;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -21,4 +23,10 @@ public class Food {
     private String titulo;
     private String imagem;
     private Integer preco;
+
+    public Food (FoodRequestDTO data) {
+        this.titulo = data.titulo();
+        this.imagem = data.imagem();
+        this.preco = data.preco();
+    }
 }
