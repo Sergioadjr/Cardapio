@@ -11,12 +11,10 @@ function App() {
   const { data } = useFoodData();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleOpenModal = () => {
-    setIsModalOpen(prev=>!prev)
-  } 
-  
-  
-  
-  (
+    setIsModalOpen(prev => !prev)
+  }
+
+  return (
     <div className="container">
 
       <h1> Cardápio</h1>
@@ -29,8 +27,8 @@ function App() {
           />
         )}
       </div>
-        {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
-        <button onClick={handleOpenModal}>Novo</button>
+      {isModalOpen && <CreateModal closeModal={handleOpenModal} />}
+      <button onClick={handleOpenModal}>Novo</button>
     </div>
 
   )
